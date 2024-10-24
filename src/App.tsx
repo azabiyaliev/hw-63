@@ -3,7 +3,9 @@ import { Container } from '@mui/material';
 import { Route, Routes } from 'react-router-dom';
 import Home from './Containers/Home/Home.tsx';
 import Typography from '@mui/material/Typography';
-import AddForm from './Containers/AddForm/AddForm.tsx';
+import NewPost from './Containers/NewPost/NewPost.tsx';
+import ShowPost from './Containers/ShowPost/ShowPost.tsx';
+import EditPost from './Containers/EditPost/EditPost.tsx';
 
 
 const App = () => (
@@ -15,7 +17,9 @@ const App = () => (
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/posts" element={<Home/>}/>
-        <Route path="/new-post" element={<AddForm/>}/>
+        <Route path="/posts/new-post" element={<NewPost/>}/>
+        <Route path="/posts/:idPost" element={<ShowPost/>}/>
+        <Route path="/posts/:idPost/edit" element={<EditPost/>}/>
         <Route path="*" element={<Typography variant="h3">Not found</Typography>}/>
       </Routes>
     </Container>

@@ -15,7 +15,7 @@ const NavBar = () => {
             My blog
           </Typography>
           <Button color="inherit" to="/" component={NavLink}>Home</Button>
-          <Button color="inherit" to="/new-post" component={NavLink}>Add</Button>
+          <Button color="inherit" to="/posts/new-post" component={NavLink}>Add</Button>
           <Button color="inherit" to="/about" component={NavLink}>About</Button>
           <Button color="inherit" to="/contacts" component={NavLink}>Contacts</Button>
         </Toolbar>
