@@ -7,6 +7,7 @@ import NewPost from "./Containers/NewPost/NewPost.tsx";
 import ShowPost from "./Containers/ShowPost/ShowPost.tsx";
 import EditPost from "./Containers/EditPost/EditPost.tsx";
 import About from "./Containers/About/About.tsx";
+import Contacts from './Containers/Contacts/Contacts.tsx';
 
 const App = () => (
   <>
@@ -21,6 +22,7 @@ const App = () => (
         <Route path="/posts/:idPost" element={<ShowPost />} />
         <Route path="/posts/:idPost/edit" element={<EditPost />} />
         <Route path="/posts/about" element={<About />} />
+        <Route path="/posts/contacts" element={<Contacts />} />
         <Route
           path="*"
           element={<Typography variant="h3">Not found</Typography>}

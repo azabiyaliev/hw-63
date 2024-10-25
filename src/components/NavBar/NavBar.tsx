@@ -544,7 +544,7 @@ const NavBar = () => {
           <Button color="inherit" to="/posts/about" component={NavLink}>
             About
           </Button>
-          <Button color="inherit" to="/contacts" component={NavLink}>
+          <Button color="inherit" to="/posts/contacts" component={NavLink}>
             Contacts
           </Button>
         </Toolbar>
