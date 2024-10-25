@@ -28,7 +28,6 @@ const EditPost = () => {
       setLoading(false);
     }
 
-
   }, []);
 
   useEffect(() => {

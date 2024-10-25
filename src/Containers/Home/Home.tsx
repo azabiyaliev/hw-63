@@ -47,9 +47,9 @@ const Home = () => {
           {posts.length === 0 ? <p className="text-center fs-1">No posts</p> :
             <Grid container spacing={2}>
               {posts.map((post) => (
-                <Grid key={post.id}>
-                  <Card sx={{ minWidth: 275, maxWidth: 500 }}>
-                    <CardContent>
+                <Grid xs={10} key={post.id}>
+                  <Card >
+                    <CardContent sx={{alignSelf: "center"}}>
                       <Typography variant="body2">{dayjs(post.date).format('D MMMM YYYY, HH:mm')}</Typography>
                       <Typography sx={{fontSize: 30, ms: 0, ps: 0}} variant="body2">{post.title}</Typography>
                       <Typography variant="body2">{post.description}</Typography>

@@ -35,6 +35,21 @@ const ShowPost = () => {
     }
   },[params.idPost, fetchPost]);
 
+
+
+  const deletePost = async () => {
+    try {
+    setLoading(true);
+      await axiosAPI.delete(`posts/${params.idPost}.json`);
+
+    } catch (e) {
+      console.log(e);
+    }finally {
+      setLoading(false);
+    }
+  };
+
+
   return (
     <>
       {loading ? <Loader/> :
@@ -49,7 +64,7 @@ const ShowPost = () => {
               </CardContent>
               <CardActions>
                 <Button to={`/posts/${post.id}/edit`} size="small" component={NavLink}>Refactor</Button>
-                <Button to={`/posts/`} size="small" component={NavLink}>Delete</Button>
+                <Button onClick={deletePost} to={`/`} size="small" component={NavLink}>Delete</Button>
               </CardActions>
             </Card>
           </Grid>
