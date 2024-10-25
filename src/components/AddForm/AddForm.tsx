@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { IPostForm } from '../../types';
-import Box from '@mui/material/Box';
-import { TextField } from '@mui/material';
-import Button from '@mui/material/Button';
+import React, { useEffect, useState } from "react";
+import { IPostForm } from "../../types";
+import Box from "@mui/material/Box";
+import { TextField } from "@mui/material";
+import Button from "@mui/material/Button";
 
 const initialForm = {
   title: "",
   description: "",
-  date: ""
+  date: "",
 };
 
 interface Props {
@@ -15,46 +15,62 @@ interface Props {
   submitForm: (post: IPostForm) => void;
 }
 
-const AddForm: React.FC<Props> = ({post, submitForm}) => {
-
-  const [form, setForm] = useState<IPostForm>({...initialForm});
+const AddForm: React.FC<Props> = ({ post, submitForm }) => {
+  const [form, setForm] = useState<IPostForm>({ ...initialForm });
 
   useEffect(() => {
     if (post) {
-      setForm(prevState => ({
+      setForm((prevState) => ({
         ...prevState,
-        ...post
+        ...post,
       }));
     }
   }, [post]);
 
   const onChangeField = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const {name, value} = e.target;
-    setForm(prevState => ({
+    const { name, value } = e.target;
+    setForm((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const onSubmitForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    submitForm({...form, date: new Date().toISOString()});
-
+    submitForm({ ...form, date: new Date().toISOString() });
 
     if (!post) {
-      setForm({...initialForm});
+      setForm({ ...initialForm });
     }
   };
 
   return (
-    <form onSubmit={onSubmitForm} style={{width: '70%', border: '4px solid #9e9e9e', borderRadius: "10px", marginLeft:"auto", marginRight:"auto"}}>
-      <h1 style={{textAlign: "center", paddingTop: "30px"}}>{post ? "Refactor" : "Add new"} post</h1>
+    <form
+      onSubmit={onSubmitForm}
+      style={{
+        width: "70%",
+        border: "4px solid #9e9e9e",
+        borderRadius: "10px",
+        marginLeft: "auto",
+        marginRight: "auto",
+      }}
+    >
+      <h1 style={{ textAlign: "center", paddingTop: "30px" }}>
+        {post ? "Refactor" : "Add new"} post
+      </h1>
       <Box
-        sx={{ py: 3, display: 'grid', gap: 2, alignItems: 'center', flexWrap: 'wrap', width: '100%' }}
+        sx={{
+          py: 3,
+          display: "grid",
+          gap: 2,
+          alignItems: "center",
+          flexWrap: "wrap",
+          width: "100%",
+        }}
       >
         <TextField
-          sx={{mx: 'auto', width: '90%' }}
+          sx={{ mx: "auto", width: "90%" }}
           name="title"
           id="outlined-basic"
           label="Title"
@@ -63,7 +79,7 @@ const AddForm: React.FC<Props> = ({post, submitForm}) => {
           onChange={onChangeField}
         />
         <TextField
-          sx={{mx: 'auto', width: '90%' }}
+          sx={{ mx: "auto", width: "90%" }}
           name="description"
           id="outlined-multiline-static"
           label="Description"
@@ -72,7 +88,14 @@ const AddForm: React.FC<Props> = ({post, submitForm}) => {
           value={form.description}
           onChange={onChangeField}
         />
-        <Button type="submit" sx={{mx: 'auto', width: '90%' }} color="inherit" variant="outlined">{post ? "Refactor" : "Save"}</Button>
+        <Button
+          type="submit"
+          sx={{ mx: "auto", width: "90%" }}
+          color="inherit"
+          variant="outlined"
+        >
+          {post ? "Refactor" : "Save"}
+        </Button>
       </Box>
     </form>
   );
